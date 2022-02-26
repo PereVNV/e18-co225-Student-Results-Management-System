@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "581060588472",
+    "project_id": "srms-3f71d",
+    "storage_bucket": "srms-3f71d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581060588472:android:e3dcb617b6770976d2154d",
+        "android_client_info": {
+          "package_name": "com.sharetechidea.srms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581060588472-jp978k963cu9poipdh05tlj81ans51dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBySn8M-IVEu0Kgfrmb0vTg89T5LOTG_Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581060588472-jp978k963cu9poipdh05tlj81ans51dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
