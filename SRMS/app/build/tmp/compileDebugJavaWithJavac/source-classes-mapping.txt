@@ -1,0 +1,6 @@
+com/sharetechidea/srms/MainActivity.java
+ com.sharetechidea.srms.MainActivity
+com/sharetechidea/srms/WelcomePage.java
+ com.sharetechidea.srms.WelcomePage
+com/sharetechidea/srms/BuildConfig.java
+ com.sharetechidea.srms.BuildConfig
