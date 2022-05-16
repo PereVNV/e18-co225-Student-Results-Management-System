@@ -1,5 +1,7 @@
 package com.example.gsignin;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -132,7 +136,14 @@ public class MainActivity extends AppCompatActivity {
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();
 
-            Toast.makeText(MainActivity.this,personName+personEmail,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this,personName+personEmail,Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, UserProfile.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", personName);
+            bundle.putString("email", personEmail);
+            bundle.putString("id",personId);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
     }
 }
