@@ -16,8 +16,13 @@ public class Student {
     private int rank;
     private double currentGPA;
     private String departmentName;
-    private HashMap<Course, String> grades = new HashMap<>();
+    private HashMap<Course, String> courseGrades = new HashMap<>();
     private List<Department> departments = new ArrayList<Department>();
+
+    String finalMessage = "";
+    List<String> grades = new ArrayList<String>();
+
+    Set<String> distinct = new HashSet<>(grades);
 
     public Student(String fullName, String regNo, boolean isAdmin) {
         this.fullName = fullName;
@@ -82,14 +87,14 @@ public class Student {
     }
 
     public HashMap<Course, String> getGrades() {
-        return this.grades;
+        return this.courseGrades;
     }
 
     // Method to calculate GPA when final grades are given
     public double calculateGPA(String departmentName, HashMap<Course, String> marks) {
         boolean departmentExists = false;
         this.departmentName = departmentName;
-        this.grades = marks;
+        this.courseGrades = marks;
         double currGPA = 0.0;
         int totcredits = 0;
         for (Department d : departments) {
@@ -207,12 +212,10 @@ public class Student {
 
     // Method to calculate necessary grades for each semester to achieve expected
     // GPA in upcoming semesters
-    public String calculateNecessaryGrades(double expectedGPA) {
-        List<String> grades = new ArrayList<String>();
+    public void calculateNecessaryGrades(double expectedGPA) {
 
-        Set<String> distinct = new HashSet<>(grades);
         String necessaryGrade = "";
-        String finalMessage = "";
+
         if (expectedGPA > 3.7 && expectedGPA <= 4.0) {
             necessaryGrade = "A";
             grades.add(necessaryGrade);
@@ -247,6 +250,10 @@ public class Student {
             necessaryGrade = "E";
             grades.add(necessaryGrade);
         }
+    }
+
+    public String getNecessaryGrade(double expectedGPA) {
+        calculateNecessaryGrades(expectedGPA);
         for (String s : distinct) {
             finalMessage += (Collections.frequency(grades, s) + s) + " ";
         }
