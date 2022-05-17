@@ -1,34 +1,34 @@
 public class Course {
-    private String courseName,courseId;
+    private String courseName, courseId;
     private int courseCredits;
 
-    public Course(String courseName, String courseId,String courseCredits) {
-        this.courseName=courseName;
-        this.courseId=courseId;
-        this.courseCredits=courseCredits;
+    public Course(String courseName, String courseId, int courseCredits) {
+        this.courseName = courseName;
+        this.courseId = courseId;
+        this.courseCredits = courseCredits;
     }
 
-    public String getcourseName(){
+    public String getcourseName() {
         return this.courseName;
     }
 
-    public void setcourseName(String coureseName){
-        this.courseName=courseName;
+    public void setcourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public String getcourseId(){
+    public String getcourseId() {
         return this.courseId;
     }
 
-    public void setcourseId(String courseId){
-        this.courseId=courseId;
+    public void setcourseId(String courseId) {
+        this.courseId = courseId;
     }
 
-    public int getcourseCredits(){
+    public int getcourseCredits() {
         return this.courseCredits;
     }
 
-    public void setcourseCredits(int courseCredits){
-        this.courseCredits=courseCredits;
+    public void setcourseCredits(int courseCredits) {
+        this.courseCredits = courseCredits;
     }
 }

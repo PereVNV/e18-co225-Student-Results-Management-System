@@ -1,4 +1,7 @@
-public class Departments{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Departments {
     private List<Department> departments = new ArrayList<Department>();
 
     public List<Department> getDepartments() {

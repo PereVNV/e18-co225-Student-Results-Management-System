@@ -12,28 +12,28 @@ public class Courses {
         this.courses = courses;
     }
 
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         courses.add(course);
     }
 
-    public void updateCourse(Course course){
-        for(Course c: courses){
-            if(c.getcourseId().equalsIgnoreCase(course.getcourseId())){
-                c.getcourseName()=course.getcourseName();
-                c.getcourseCredits()=course.getcourseCredits();
+    public void updateCourse(Course course) {
+        for (Course c : courses) {
+            if (c.getcourseId().equalsIgnoreCase(course.getcourseId())) {
+                c.setcourseName(course.getcourseName());
+                c.setcourseCredits(course.getcourseCredits());
             }
         }
     }
 
-    public void deleteCourse(Course course){
-        for(Course c: courses){
-            if(c.getcourseId().equalsIgnoreCase(course.getcourseId())){
+    public void deleteCourse(Course course) {
+        for (Course c : courses) {
+            if (c.getcourseId().equalsIgnoreCase(course.getcourseId())) {
                 courses.remove(c);
             }
         }
     }
 
-    public int getnumberOfCourses(){
+    public int getnumberOfCourses() {
         return courses.size();
     }
 }
