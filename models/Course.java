@@ -1,6 +1,40 @@
 public class Course {
     private String courseName, courseId;
     private int courseCredits;
+    private double quizzez, assignments, projects;
+    private double courseGrade;
+
+    public double getCourseGrade() {
+        return courseGrade;
+    }
+
+    public void setCourseGrade(double courseGrade) {
+        this.courseGrade = courseGrade;
+    }
+
+    public double getQuizzez() {
+        return quizzez;
+    }
+
+    public void setQuizzez(double quizzez) {
+        this.quizzez = quizzez;
+    }
+
+    public double getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(double assignments) {
+        this.assignments = assignments;
+    }
+
+    public double getProjects() {
+        return projects;
+    }
+
+    public void setProjects(double projects) {
+        this.projects = projects;
+    }
 
     public Course(String courseName, String courseId, int courseCredits) {
         this.courseName = courseName;

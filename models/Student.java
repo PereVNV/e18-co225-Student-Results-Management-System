@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 public class Student {
@@ -82,6 +85,7 @@ public class Student {
         return this.grades;
     }
 
+    // Method to calculate GPA when final grades are given
     public double calculateGPA(String departmentName, HashMap<Course, String> marks) {
         boolean departmentExists = false;
         this.departmentName = departmentName;
@@ -146,5 +150,106 @@ public class Student {
 
         }
         return currentGPA;
+    }
+
+    // Method to calculate required marks for a particular course When continuous
+    // assessment (quizzes, assignments, projects ) marks are entered for a
+    // particular course for the expected grade of that course
+    public double calculateRequiredMarks(int quizzes, int assignments, int projects, String expectedGrade) {
+        double totSubMarks = quizzes + assignments + projects;
+        double minExpectedMarks = 0.0;
+        double requiredmarks = 0.0;
+        switch (expectedGrade) {
+            case "A+":
+                minExpectedMarks = 85.0;
+                break;
+            case "A":
+                minExpectedMarks = 75.0;
+                break;
+            case "A-":
+                minExpectedMarks = 70.0;
+                break;
+            case "B+":
+                minExpectedMarks = 65.0;
+                break;
+            case "B":
+                minExpectedMarks = 60.0;
+                break;
+            case "B-":
+                minExpectedMarks = 55.0;
+                break;
+            case "C+":
+                minExpectedMarks = 50.0;
+                break;
+            case "C":
+                minExpectedMarks = 45.0;
+                break;
+            case "C-":
+                minExpectedMarks = 40.0;
+                break;
+            case "D+":
+                minExpectedMarks = 35.0;
+                break;
+            case "D":
+                minExpectedMarks = 30.0;
+                break;
+            default:
+                minExpectedMarks = 0.0;
+                break;
+        }
+        if (minExpectedMarks > totSubMarks) {
+            requiredmarks = minExpectedMarks - totSubMarks;
+        } else {
+            requiredmarks = 0.0;
+        }
+        return requiredmarks;
+    }
+
+    // Method to calculate necessary grades for each semester to achieve expected
+    // GPA in upcoming semesters
+    public String calculateNecessaryGrades(double expectedGPA) {
+        List<String> grades = new ArrayList<String>();
+
+        Set<String> distinct = new HashSet<>(grades);
+        String necessaryGrade = "";
+        String finalMessage = "";
+        if (expectedGPA > 3.7 && expectedGPA <= 4.0) {
+            necessaryGrade = "A";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 3.3 && expectedGPA <= 3.7) {
+            necessaryGrade = "A-";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 3.0 && expectedGPA <= 3.3) {
+            necessaryGrade = "B+";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 2.7 && expectedGPA <= 3.0) {
+            necessaryGrade = "B";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 2.3 && expectedGPA <= 2.7) {
+            necessaryGrade = "B-";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 2.0 && expectedGPA <= 2.3) {
+            necessaryGrade = "C+";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 1.7 && expectedGPA <= 2.0) {
+            necessaryGrade = "C";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 1.3 && expectedGPA <= 1.7) {
+            necessaryGrade = "C-";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 1.0 && expectedGPA <= 1.3) {
+            necessaryGrade = "D+";
+            grades.add(necessaryGrade);
+        } else if (expectedGPA > 0.0 && expectedGPA <= 1.0) {
+            necessaryGrade = "D";
+            grades.add(necessaryGrade);
+        } else {
+            necessaryGrade = "E";
+            grades.add(necessaryGrade);
+        }
+        for (String s : distinct) {
+            finalMessage += (Collections.frequency(grades, s) + s) + " ";
+        }
+        return finalMessage;
     }
 }
