@@ -209,4 +209,62 @@ public class Student {
         }
         return requiredmarks;
     }
+    // ******************************************************************************************************//
+    // ******************************************************************************************************//
+    Courses courses = new Courses();
+    List<Course> newCourses = courses.getCourses();
+
+    public List<String> calnesgrade(List<Course> newCourses, double expectedGPA) {
+        List<String> gds = new ArrayList<String>();
+        int totc = 0;
+        String necessaryGrade = "";
+        int numCourse = 0;
+        for (Course c : newCourses) {
+            totc += c.getcourseCredits();
+            ++numCourse;
+        }
+        double exp = expectedGPA * totc;
+        double agpa = exp / numCourse;
+        for (Course c : newCourses) {
+            double div = agpa / c.getcourseCredits();
+            if (div > 4) {
+                necessaryGrade = "A";
+                gds.add(necessaryGrade);
+            } else if (div > 3.7 && div <= 4.0) {
+                necessaryGrade = "A";
+                gds.add(necessaryGrade);
+            } else if (div > 3.3 && div <= 3.7) {
+                necessaryGrade = "A-";
+                gds.add(necessaryGrade);
+            } else if (div > 3.0 && div <= 3.3) {
+                necessaryGrade = "B+";
+                gds.add(necessaryGrade);
+            } else if (div > 2.7 && div <= 3.0) {
+                necessaryGrade = "B";
+                gds.add(necessaryGrade);
+            } else if (div > 2.3 && div <= 2.7) {
+                necessaryGrade = "B-";
+                gds.add(necessaryGrade);
+            } else if (div > 2.0 && div <= 2.3) {
+                necessaryGrade = "C+";
+                gds.add(necessaryGrade);
+            } else if (div > 1.7 && div <= 2.0) {
+                necessaryGrade = "C";
+                gds.add(necessaryGrade);
+            } else if (div > 1.3 && div <= 1.7) {
+                necessaryGrade = "C-";
+                gds.add(necessaryGrade);
+            } else if (div > 1.0 && div <= 1.3) {
+                necessaryGrade = "D+";
+                gds.add(necessaryGrade);
+            } else if (div > 0.0 && div <= 1.0) {
+                necessaryGrade = "D";
+                gds.add(necessaryGrade);
+            } else {
+                necessaryGrade = "E";
+                gds.add(necessaryGrade);
+            }
+        }
+        return gds;
+    }
 }
